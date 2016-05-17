@@ -45,7 +45,10 @@ export class App {
   loading = false;
   public isDarkTheme: boolean;
   constructor(public appState: AppState, private settings: SettingsService) {
-    this.isDarkTheme = this.settings.getTheme();
+    this.settings.getTheme().subscribe(x => {
+            this.isDarkTheme = x,
+            console.log(x);
+    });
   }
 
   ngOnInit() {

@@ -16,7 +16,10 @@ export class HeaderComponent implements OnInit {
     public logo = 'assets/img/angular-logo.png';
     public isDarkTheme: boolean;
     constructor(private settings: SettingsService) {
-        this.settings.getTheme().subscribe(x => this.isDarkTheme = x);
+        this.settings.getTheme().subscribe(x => {
+            this.isDarkTheme = x,
+            console.log(x);
+        });
     }
 
     ngOnInit() { }

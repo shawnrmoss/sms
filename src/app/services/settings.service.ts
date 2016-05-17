@@ -3,17 +3,17 @@ import { Observable } from 'rxjs';
 
 @Injectable()
 export class SettingsService {
-    isDarkTheme: Observable<boolean>;
+    isDarkTheme: boolean;
     constructor() {
-        this.isDarkTheme = Observable.create(false);
+        this.isDarkTheme = true;
     }
 
     toggleTheme() {
-
+        this.isDarkTheme = !this.isDarkTheme;
     }
 
     getTheme() {
-        return this.isDarkTheme;
+        return Observable.of(this.isDarkTheme);
     }
 
 }
