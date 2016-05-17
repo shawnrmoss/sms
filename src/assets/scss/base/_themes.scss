@@ -1,0 +1,59 @@
+// Dark Theme -- following material design specs
+$sms-dark-status-bar: #000000;
+$sms-dark-app-bar: #212121;
+$sms-dark-background: #303030;
+$sms-dark-cards-dialogs: #424242;
+
+$sms-dark-primary-text: rgba(255, 255, 255, 1);
+.sms-dark-primary-text{
+    color: $sms-dark-primary-text;       
+}
+$sms-dark-secondary-text: rgba(255, 255, 255, 0.7);
+$sms-dark-disabled-hint-text: rgba(255, 255, 255, 0.5);
+
+$sms-dark-dividers: rgba(255, 255, 255, 0.12);
+
+.sms-theme--dark {
+    background-color:  $sms-dark-background;    
+    color: $sms-dark-primary-text;                         
+}
+
+// Light Theme -- following material design specs
+$sms-light-status-bar: #E0E0E0;
+$sms-light-app-bar: #F5F5F5;
+$sms-light-background: #FAFAFA;
+$sms-light-cards-dialogs: #FFFFFF;
+
+$sms-light-primary-text: rgba(0, 0, 0, 0.87);
+.sms-light-primary-text{
+    color: $sms-light-primary-text;       
+}
+$sms-light-secondary-text: rgba(0, 0, 0, 0.54);
+$sms-light-disabled-hint-text: rgba(0, 0, 0, 0.38);
+
+$sms-light-dividers: rgba(0, 0,0, 0.12);
+
+
+.sms-theme--light {
+    background-color:  $sms-light-background;   
+    color: $sms-light-primary-text;      
+}
+
+// Primary and Accent Color affects
+a {		   
+    color: $sms-primary;    
+
+    &:hover {
+        border-bottom-color: $sms-primary;
+        color: $sms-yellow-300 !important;  //If you want to change to a different primary color you must create another color palette other then yellow
+
+        &:before {
+            color: $sms-yellow-300 !important;
+        }
+    }
+}
+
+strong, b {
+    color: $sms-accent;    //If you want to change to a different primary color you must create another color palette other then yellow
+}
+

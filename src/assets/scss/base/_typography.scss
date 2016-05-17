@@ -1,0 +1,49 @@
+body, input, select, textarea {    
+    color: $sms-dark-primary-text;
+    
+    font-family: $font-family;
+    font-size: 14pt;
+    font-weight: $font-weight;
+    line-height: 1.75;
+
+    @media(max-width:767px){
+        font-size: 12pt; 
+    }
+    @media(min-width:768px){
+        font-size: 12pt;     
+    }
+    @media(min-width:992px){
+        font-size: 12pt;    
+    }
+    @media(min-width:1200px){
+        font-size: 12pt;      
+    }        
+}
+
+a {		       
+    text-decoration: none;		
+}
+
+strong, b {    
+    font-weight: $font-weight-bold;
+}
+
+em, i {
+    font-style: italic;
+}
+
+/*
+h1, h2, h3, h4, h5, h6 {
+    color: $sms-dark-primary-text;    
+    font-weight: $font-weight-heading-bold;   
+        
+    a {
+        color: inherit;
+        border-bottom: 0;
+    }
+}*/
+
+hr {
+    border: 0;
+    border-bottom: solid 1px $sms-dark-dividers;      
+}
