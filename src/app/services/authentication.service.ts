@@ -45,11 +45,11 @@ export class AuthenticationService {
     return this.http.post(this.CONSTANTS.BASE_SERVICE_URL + 'Token', body, {
       headers: this.headers
     })
-    .map(res => {
-      this.token = res.json().access_token;
-      this.loggedIn = true;
-      localStorage.setItem('jwt', this.token);
-    });
+      .map(res => {
+        this.token = res.json().access_token;
+        this.loggedIn = true;
+        localStorage.setItem('jwt', this.token);
+      });
   }
 
   /**
@@ -68,16 +68,76 @@ export class AuthenticationService {
     };
 
     return this.http.post(this.CONSTANTS.BASE_SERVICE_URL +
-                          'api/account/Register', JSON.stringify(registrationBindingModel), {
+      'api/account/Register', JSON.stringify(registrationBindingModel), {
         headers: this.headers
-    });
+      });
   }
 
-  logout() {
-    this.loggedIn = false;
+  /**
+   * Logs the user out both in the client app and on the server
+   */
+  public logout() {
+
+    let jwt = localStorage.getItem('jwt');
+
+    // An authenticated request must contain the jwt token
+    this.headers.append('Authorization', 'Bearer ' + jwt);
+
+    this.http.post(this.CONSTANTS.BASE_SERVICE_URL + 'api/Account/Logout', '', {
+      headers: this.headers
+    })
+      .subscribe(res => {
+        localStorage.removeItem('jwt');
+        localStorage.removeItem('expires');
+        localStorage.removeItem('userName');
+        this.loggedIn = false;
+        this.router.navigate(['Login']);
+      });
   }
 
+  // Properties 
+
+  public isAuthenticated() {
+    return localStorage.getItem('jwt') !== undefined;
+  }
+
+  public getSummitUserID() {
+    return this.jwtHelper.decodeToken(localStorage.getItem('jwt')).SummitUserID;
+  }
+
+  public getCustomerID() {
+    return this.jwtHelper.decodeToken(localStorage.getItem('jwt')).CustomerID;
+  }
+
+  public getDisplayName() {
+    return this.jwtHelper.decodeToken(localStorage.getItem('jwt')).DisplayName;
+  }
+
+  public getEmail() {
+    return this.jwtHelper.decodeToken(localStorage.getItem('jwt')).Name;
+  }
+
+  public getPermissions() {
+    return this.jwtHelper.decodeToken(localStorage.getItem('jwt')).Permissions;
+  }
+
+  public getRoles() {
+    return this.jwtHelper.decodeToken(localStorage.getItem('jwt')).roles;
+  }
+
+  /**
+   * This function checks to see if the user is logged in.
+   * @returns boolean that represents whether a user is logged in or not.
+   */
   check() {
+    this.loggedIn = true;
+    // Need to check for invalid or expired jwt and set the value of this.loggedIn truthy    
+    if (!localStorage.getItem('jwt')) {
+      this.loggedIn = false;
+    } else if (this.jwtHelper.isTokenExpired(localStorage.getItem('jwt'))) {
+      this.loggedIn = false;
+    }
+
     return Observable.of(this.loggedIn);
   }
 }

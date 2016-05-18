@@ -9,6 +9,7 @@ import { HeaderComponent } from './../../components/header';
 
 // Views
 import { HomeView } from './../../views/home';
+import { PermissionDeniedView } from './../../views/permission-denied';
 
 @Component({
     moduleId: module.id,
@@ -22,7 +23,8 @@ import { HomeView } from './../../views/home';
 })
 @RouteConfig([
   { path: '/', name: 'Home', component: HomeView, useAsDefault: true },
-  { path: '/home', name: 'Home', component: HomeView }
+  { path: '/home', name: 'Home', component: HomeView },
+  { path: '/denied', name: 'PermissionDenied', component: PermissionDeniedView }
 ])
 export class MainLayout implements OnInit {
 

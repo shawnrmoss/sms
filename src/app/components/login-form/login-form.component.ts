@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Http } from '@angular/http';
 import { Router } from '@angular/router-deprecated';
 
@@ -12,6 +12,8 @@ import { AuthenticationService } from '../../services/authentication.service';
     styles: [require('./login-form.component.css')]
 })
 export class LoginForm implements OnInit {
+    @Output() submit = new EventEmitter();
+
     public message: string;
     public loading: boolean;
     public credential: Credential;
@@ -26,20 +28,9 @@ export class LoginForm implements OnInit {
     ngOnInit() { }
 
     onSubmit() {
-        this.loading = true;
-        this.authentication.login(this.credential)
-            .subscribe(
-            data => {
-                console.log(data);
-                this.loading = false;
-                this.router.navigate(['Home']);
-            },
-            err => {
-                console.log(err);
-                this.loading = false;
-                this.handleError(err); // Display error message to the user
-            }
-            );
+        this.submit.emit();    
+         
+        
     }
 
     handleError(value) {

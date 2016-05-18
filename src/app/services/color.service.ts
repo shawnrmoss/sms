@@ -3,11 +3,11 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class ColorsService {
 	public tinycolor = require('tinycolor2');
-	//https://www.google.com/design/spec/style/color.html#color-themes 
+	// https://www.google.com/design/spec/style/color.html#color-themes 
 	private darkTheme: Array<Color>;
 	private lightTheme: Array<Color>;
 
-	
+
 	constructor() {
 		this.lightTheme = [
             new Color('status-bar', '#E0E0E0'),
@@ -23,14 +23,14 @@ export class ColorsService {
 		];
 	}
 
-computeColors(hex: string) {
-	return [
-this.getColorObject(this.tinycolor(hex).lighten(52), '50'),
-this.getColorObject(this.tinycolor(hex).lighten(37), '100'),
-this.getColorObject(this.tinycolor(hex).lighten(26), '200'),
-this.getColorObject(this.tinycolor(hex).lighten(12), '300'),
-this.getColorObject(this.tinycolor(hex).lighten(6), '400'),
- this.getColorObject(this.tinycolor(hex), '500'),
+	computeColors(hex: string) {
+		return [
+			this.getColorObject(this.tinycolor(hex).lighten(52), '50'),
+			this.getColorObject(this.tinycolor(hex).lighten(37), '100'),
+			this.getColorObject(this.tinycolor(hex).lighten(26), '200'),
+			this.getColorObject(this.tinycolor(hex).lighten(12), '300'),
+			this.getColorObject(this.tinycolor(hex).lighten(6), '400'),
+			this.getColorObject(this.tinycolor(hex), '500'),
 			this.getColorObject(this.tinycolor(hex).darken(6), '600'),
 			this.getColorObject(this.tinycolor(hex).darken(12), '700'),
 			this.getColorObject(this.tinycolor(hex).darken(18), '800'),
