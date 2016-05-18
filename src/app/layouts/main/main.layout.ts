@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { RouteConfig, Router } from '@angular/router-deprecated';
+import { CanActivate, ComponentInstruction, RouteConfig, Router } from '@angular/router-deprecated';
+
+// Helpers
+import { isLoggedIn } from '../../helpers/is-logged-in';
 
 // Components
 import { HeaderComponent } from './../../components/header';
@@ -13,6 +16,9 @@ import { HomeView } from './../../views/home';
     template: require('./main.layout.html'),
     styles: [require('./main.layout.css')],
     directives: [HeaderComponent]
+})
+@CanActivate((next: ComponentInstruction, previous: ComponentInstruction) => {
+  return isLoggedIn(next, previous);
 })
 @RouteConfig([
   { path: '/', name: 'Home', component: HomeView, useAsDefault: true },

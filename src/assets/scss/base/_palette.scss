@@ -1,0 +1,142 @@
+$sms-yellow: (
+  50: #fffefd,
+  100: #ffe3b1,
+  200: #fecf79,
+  300: #feb532,
+  400: #feaa14,
+  500: #f29c01,
+  600: #d38801,
+  700: #b57501,
+  800: #976101,
+  900: #784d01,
+  A100: #fffefd,
+  A200: #ffe3b1,
+  A400: #feaa14,
+  A700: #b57501,
+);
+
+$sms-green: (
+  50: #ddeed2,
+  100: #b3d99a,
+  200: #95ca72,
+  300: #6fb143,
+  400: #619b3a,
+  500: #538532,
+  600: #456f2a,
+  700: #375921,
+  800: #294219,
+  900: #1b2c11,
+  A100: #ddeed2,
+  A200: #b3d99a,
+  A400: #619b3a,
+  A700: #375921,
+);
+
+$sms-red: (
+  50: #ffebee,
+  100: #ffcdd2,
+  200: #ef9a9a,
+  300: #e57373,
+  400: #ef5350,
+  500: #f44336,
+  600: #e53935,
+  700: #d32f2f,
+  800: #c62828,
+  900: #b71c1c,
+  A100: #ff8a80,
+  A200: #ff5252,
+  A400: #ff1744,
+  A700: #d50000,
+);
+
+// Contrast colors. These are hard-coded because it is too difficult (probably impossible) to
+// calculate them. These contrast colors are pulled from the public Material Design spec swatches.
+// While the contrast colors in the spec are not perscriptive, we will use them for convenience.
+$black-87-opacity: rgba(black, 0.870588);
+$white-87-opacity: rgba(white, 0.870588);
+
+$sms-contrast-palettes: (  
+  $sms-yellow: (
+    50: $black-87-opacity,
+    100: $black-87-opacity,
+    200: $black-87-opacity,
+    300: $black-87-opacity,
+    400: $black-87-opacity,
+    500: $black-87-opacity,
+    600: $black-87-opacity,
+    700: $black-87-opacity,
+    800: $black-87-opacity,
+    900: $black-87-opacity,
+    A100: $black-87-opacity,
+    A200: $black-87-opacity,
+    A400: $black-87-opacity,
+    A700: $black-87-opacity,
+  ),
+  $sms-green: (
+    50: $black-87-opacity,
+    100: $black-87-opacity,
+    200: $black-87-opacity,
+    300: $black-87-opacity,
+    400: $black-87-opacity,
+    500: $black-87-opacity,
+    600: $black-87-opacity,
+    700: $black-87-opacity,
+    800: $black-87-opacity,
+    900: $black-87-opacity,
+    A100: $black-87-opacity,
+    A200: $black-87-opacity,
+    A400: $black-87-opacity,
+    A700: $black-87-opacity,
+  ),
+  $sms-red: (
+    50: $black-87-opacity,
+    100: $black-87-opacity,
+    200: $black-87-opacity,
+    300: $black-87-opacity,
+    400: $black-87-opacity,
+    500: white,
+    600: white,
+    700: white,
+    800: $white-87-opacity,
+    900: $white-87-opacity,
+    A100: $black-87-opacity,
+    A200: white,
+    A400: white,
+    A700: white,
+  ),
+);
+
+//map-get($colors, sky);
+// Custom colors generated with colorService
+$sms-yellow-50: #fffefd;
+$sms-yellow-100: #ffe3b1;
+$sms-yellow-200: #fecf79;
+$sms-yellow-300: #feb532;
+$sms-yellow-400: #feaa14;
+$sms-yellow-500: #f29c01;
+$sms-yellow-600: #d38801;
+$sms-yellow-700: #b57501;
+$sms-yellow-800: #976101;
+$sms-yellow-900: #784d01;
+$sms-yellow-A100: #fffefd;
+$sms-yellow-A200: #ffe3b1;
+$sms-yellow-A400: #feaa14;
+$sms-yellow-A700: #b57501;
+
+$sms-green-50: #ddeed2;
+$sms-green-100: #b3d99a;
+$sms-green-200: #95ca72;
+$sms-green-300: #6fb143;
+$sms-green-400: #619b3a;
+$sms-green-500: #538532;
+$sms-green-600: #456f2a;
+$sms-green-700: #375921;
+$sms-green-800: #294219;
+$sms-green-900: #1b2c11;
+$sms-green-A100: #ddeed2;
+$sms-green-A200: #b3d99a;
+$sms-green-A400: #619b3a;
+$sms-green-A700: #375921;
+
+//Validation
+

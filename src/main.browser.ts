@@ -15,8 +15,16 @@ import { ENV_PROVIDERS } from './platform/environment';
 */
 import { App, APP_PROVIDERS } from './app';
 
+
+import { provide, ComponentRef } from '@angular/core';
+import { appInjector } from './app/helpers/app-injector';
+
 // Services 
+import { ApplicationService } from './app/services/application.service';
+import { AuthenticationService } from './app/services/authentication.service';
+import { ColorsService } from './app/services/color.service';
 import { SettingsService } from './app/services/settings.service';
+
 
 /*
  * Bootstrap our Angular app with a top level component `App` and inject
@@ -25,13 +33,19 @@ import { SettingsService } from './app/services/settings.service';
 export function main(initialHmrState?: any): Promise<any> {
 
   return bootstrap(App, [
+    ApplicationService, 
+    AuthenticationService,
+    ColorsService,
     SettingsService,
     ...PROVIDERS,
     ...ENV_PROVIDERS,
     ...DIRECTIVES,
     ...PIPES,
     ...APP_PROVIDERS
-  ])
+  ]).then((appRef: ComponentRef<App>) => {
+    // store a reference to the application injector
+    appInjector(appRef.injector);
+  })  
   .catch(err => console.error(err));
 
 }
