@@ -13,6 +13,7 @@ import { LoginForm } from './../../components/login-form';
     directives: [Panel, LoginForm]
 })
 export class LoginView implements OnInit {
+    public logo = 'assets/img/angular-logo.png';
     constructor() { }
 
     ngOnInit() { }
