@@ -8,7 +8,6 @@ import { AuthenticationService } from './../../services/authentication.service';
 import { Credential } from './../../types/authentication';
 
 // Components
-import { Panel } from './../../components/panel';
 import { LoginForm } from './../../components/login-form';
 
 
@@ -17,7 +16,7 @@ import { LoginForm } from './../../components/login-form';
     selector: 'login-view',
     template: require('./login.view.html'),
     styles: [require('./login.view.css')],
-    directives: [Panel, LoginForm]
+    directives: [LoginForm]
 })
 export class LoginView implements OnInit {
     public logo = 'assets/img/angular-logo.png';
@@ -33,25 +32,30 @@ export class LoginView implements OnInit {
 
     login(credential: Credential) {
         if (credential.email) {
+            this.loading = true;
             this.authentication.login(credential)
                 .subscribe(
                 data => {
-                    console.log(data);
+                    // console.log('Success', data);
                     this.loading = false;
                     this.router.navigate(['Index', 'Home']);
                 },
                 err => {
-                    console.log(err);
+                    // console.log('Error', err);
                     this.loading = false;
-                    this.handleError(err); // Display error message to the user
+                    this.showError(err); // Display error message to the user
+                },
+                () => {
+                    // console.log('Finally');
+                    this.loading = false;
                 }
             );
         }
     }
 
-    handleError(value) {
-        console.log(JSON.parse(value._body));
-        //this.message = JSON.parse(value._body)["error_description"];
+    showError(value) {
+        let obj = JSON.parse(value._body);
+        this.message = obj.error_description;
     }
 
 }

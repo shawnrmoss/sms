@@ -12,7 +12,7 @@ import { AuthenticationService } from '../../services/authentication.service';
     styles: [require('./login-form.component.css')]
 })
 export class LoginForm implements OnInit {
-    @Output() submit = new EventEmitter();
+    @Output() submit = new EventEmitter<Credential>();
 
     public message: string;
     public loading: boolean;
@@ -28,12 +28,6 @@ export class LoginForm implements OnInit {
     ngOnInit() { }
 
     onSubmit() {
-        this.submit.emit();    
-         
-        
-    }
-
-    handleError(value) {
-        this.message = JSON.parse(value._body)['error_description'];
+        this.submit.emit(this.credential);
     }
 }

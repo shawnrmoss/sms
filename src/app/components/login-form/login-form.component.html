@@ -16,9 +16,6 @@
                 <input class="form-control" id="password" type="password" required [(ngModel)]="credential.password" ngControl="password" #password="ngForm">               
             </div>         
         </div>
-    </div>       
-    <div *ngIf="message != null" class="alert alert-danger">
-        {{message}}
-    </div>    
+    </div>           
     <button type="submit" md-raised-button class="md-raised md-hue-6" [disabled]="!loginForm.form.valid" >Sign In</button>                
 </form>

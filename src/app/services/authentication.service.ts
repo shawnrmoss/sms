@@ -140,4 +140,20 @@ export class AuthenticationService {
 
     return Observable.of(this.loggedIn);
   }
+  
+  /**
+   * This function checks to see if the user has a particular permission.
+   * @returns boolean that represents whether a user is logged in or not.
+   */
+  hasPermission() {
+    this.loggedIn = true;
+    // Need to check for invalid or expired jwt and set the value of this.loggedIn truthy    
+    if (!localStorage.getItem('jwt')) {
+      this.loggedIn = false;
+    } else if (this.jwtHelper.isTokenExpired(localStorage.getItem('jwt'))) {
+      this.loggedIn = false;
+    }
+
+    return Observable.of(this.loggedIn);
+  }
 }

@@ -8,27 +8,27 @@ import { isLoggedIn } from '../../helpers/is-logged-in';
 import { HeaderComponent } from './../../components/header';
 
 // Views
-import { HomeView } from './../../views/home';
+import { DashboardView } from './../../views/dashboard';
 import { PermissionDeniedView } from './../../views/permission-denied';
 
 @Component({
-    moduleId: module.id,
-    selector: 'main-layout',
-    template: require('./main.layout.html'),
-    styles: [require('./main.layout.css')],
-    directives: [HeaderComponent]
+  moduleId: module.id,
+  selector: 'main-layout',
+  template: require('./main.layout.html'),
+  styles: [require('./main.layout.css')],
+  directives: [HeaderComponent]
 })
 @CanActivate((next: ComponentInstruction, previous: ComponentInstruction) => {
   return isLoggedIn(next, previous);
 })
 @RouteConfig([
-  { path: '/', name: 'Home', component: HomeView, useAsDefault: true },
-  { path: '/home', name: 'Home', component: HomeView },
+  { path: '/', name: 'Dashboard', component: DashboardView, useAsDefault: true },
+  { path: '/dashboard', name: 'Dashboard', component: DashboardView },
   { path: '/denied', name: 'PermissionDenied', component: PermissionDeniedView }
 ])
 export class MainLayout implements OnInit {
 
-    constructor() { }
+  constructor() { }
 
-    ngOnInit() { }
+  ngOnInit() { }
 }

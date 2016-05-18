@@ -91,6 +91,12 @@ $sms-accent:  map-get($sms-green, 500);
 }
 
 $sms-warn: red;
+.sms-warn{
+    color: $sms-warn;
+}
+.sms-warn-bg{
+    color: $sms-warn;
+}
 
 a {		   
     color: $sms-primary;    
