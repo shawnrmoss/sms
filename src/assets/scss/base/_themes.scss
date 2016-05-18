@@ -26,7 +26,11 @@ $sms-dark-dividers: rgba(255, 255, 255, 0.12);
     
     p {
         color: $sms-dark-secondary-text;       
-    }                
+    } 
+    
+    .panel {
+        background-color: $sms-dark-cards-dialogs;        
+    }              
 }
 
 // ***********************************************************************************
@@ -57,7 +61,11 @@ $sms-light-dividers: rgba(0, 0,0, 0.12);
     
     p {
         color: $sms-light-secondary-text;       
-    }           
+    } 
+    
+    .panel {
+        background-color: $sms-light-cards-dialogs;                     
+    }            
 }
 
 // ***********************************************************************************
@@ -100,4 +108,6 @@ a {
 strong, b {
     color: $sms-accent;    //If you want to change to a different primary color you must create another color palette other then yellow
 }
+
+
 
