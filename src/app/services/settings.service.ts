@@ -15,5 +15,4 @@ export class SettingsService {
     getTheme() {
         return Observable.of(this.isDarkTheme);
     }
-
 }

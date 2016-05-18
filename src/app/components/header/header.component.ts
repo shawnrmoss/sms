@@ -3,6 +3,7 @@ import { Component, OnInit, Input } from '@angular/core';
 // Directives
 import { RouterActive } from '../../directives/router-active';
 
+// Services
 import { SettingsService } from '../../services/settings.service';
 
 @Component({
@@ -16,10 +17,7 @@ export class HeaderComponent implements OnInit {
     public logo = 'assets/img/angular-logo.png';
     public isDarkTheme: boolean;
     constructor(private settings: SettingsService) {
-        this.settings.getTheme().subscribe(x => {
-            this.isDarkTheme = x,
-            console.log(x);
-        });
+        this.settings.getTheme().subscribe(x => { this.isDarkTheme = x });
     }
 
     ngOnInit() { }

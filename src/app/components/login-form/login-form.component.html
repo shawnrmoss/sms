@@ -1,0 +1,28 @@
+<div class="progress" *ngIf="loading">
+  <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
+    <span class="sr-only">100% Complete</span>
+  </div>
+</div>
+
+<form (ngSubmit)="onSubmit()" #loginForm="ngForm">   
+     <div class="row">
+        <div class="col-md-12">
+             <div class="form-group">
+                <label for="email">Email</label>
+                <input class="form-control" id="email" type="email" required [(ngModel)]="credential.email" ngControl="email" #email="ngForm">                
+            </div>      
+        </div>
+    </div>   
+    <div class="row">
+        <div class="col-md-12">
+              <div class="form-group">
+                <label for="password">Password</label>
+                <input class="form-control" id="password" type="password" required [(ngModel)]="credential.password" ngControl="password" #password="ngForm">               
+            </div>         
+        </div>
+    </div>       
+    <div *ngIf="message != null" class="alert alert-danger">
+        {{message}}
+    </div>    
+    <button type="submit" md-raised-button class="md-raised md-hue-6" [disabled]="!loginForm.form.valid" >Sign In</button>                
+</form>
